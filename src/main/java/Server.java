@@ -19,7 +19,7 @@ public class Server {
                     output.println("New connection accepted!");
                     String str = input.nextLine();
                     out.println("connect:\t"+str);
-                    output.println(String.format("Hi,%s, your port is %d", str, socket.getPort()));
+                    output.println(String.format("Hi,%s, your port is %d", str, socket.getLocalPort()));
                 }
             }
         }

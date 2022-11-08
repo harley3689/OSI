@@ -12,7 +12,7 @@ public class Client {
          socket.connect(new InetSocketAddress(InetAddress.getLocalHost(),port),3000);
          Scanner input = new Scanner(socket.getInputStream());
          PrintWriter output = new PrintWriter(socket.getOutputStream(),true);
-         output.println(socket.getInetAddress());
+         output.println(InetAddress.getLoopbackAddress());
 
          while (input.hasNextLine()){
              System.out.println(input.nextLine());
