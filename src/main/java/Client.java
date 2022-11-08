@@ -8,16 +8,15 @@ public class Client {
     public static void main(String[] args) throws IOException {
         int port = 8080;
 
-        try(Socket socket = new Socket()){
-         socket.connect(new InetSocketAddress(InetAddress.getLocalHost(),port),3000);
-         Scanner input = new Scanner(socket.getInputStream());
-         PrintWriter output = new PrintWriter(socket.getOutputStream(),true);
-         output.println(InetAddress.getLoopbackAddress());
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress(InetAddress.getLocalHost(), port), 3000);
+            Scanner input = new Scanner(socket.getInputStream());
+            PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+            output.println(InetAddress.getLoopbackAddress());
 
-         while (input.hasNextLine()){
-             System.out.println(input.nextLine());
-         }
-
+            while (input.hasNextLine()) {
+                System.out.println(input.nextLine());
+            }
         }
     }
 }
