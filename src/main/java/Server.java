@@ -12,8 +12,8 @@ public class Server {
 
         try (ServerSocket server = new ServerSocket(port);) {
             try (Socket socket = server.accept()) {
-                Scanner input = new Scanner(socket.getInputStream()); //пришла инф
-                PrintWriter output = new PrintWriter(socket.getOutputStream(), true); //ушла инф
+                Scanner input = new Scanner(socket.getInputStream());
+                PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
                 while(input.hasNextLine()) {
                     output.println("New connection accepted!");
