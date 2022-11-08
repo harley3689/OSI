@@ -10,10 +10,14 @@ public class Client {
 
         try(Socket socket = new Socket()){
          socket.connect(new InetSocketAddress(InetAddress.getLocalHost(),port),3000);
-         Scanner scan = new Scanner(socket.getInputStream());
-         while (scan.hasNextLine()){
-             System.out.println(scan.nextLine());
+         Scanner input = new Scanner(socket.getInputStream());
+         PrintWriter output = new PrintWriter(socket.getOutputStream(),true);
+         output.println(socket.getInetAddress());
+
+         while (input.hasNextLine()){
+             System.out.println(input.nextLine());
          }
+
         }
     }
 }
