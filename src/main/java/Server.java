@@ -15,12 +15,10 @@ public class Server {
                 Scanner input = new Scanner(socket.getInputStream());
                 PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
-                while(input.hasNextLine()) {
                     output.println("New connection accepted!");
                     String str = input.nextLine();
                     out.println("connect:\t"+str+"\tport:"+socket.getLocalPort());
                     output.println(String.format("Hi,%s, your port is %d", str, socket.getLocalPort()));
-                }
             }
         }
     }
